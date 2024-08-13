@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Transcription</title>
+</head>
+<body>
+    <h1>Upload Video for Transcription</h1>
+    <input type="file" id="videoInput">
+    <button onclick="uploadVideo()">Upload</button>
+    <div id="transcriptionResult"></div>
+
+    <script>
+        async function uploadVideo() {
+            const fileInput = document.getElementById('videoInput');
+            const file = fileInput.files[0];
+            if (!file) {
+                alert('Please select a video file.');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('video', file);
+
+            const response = await fetch('YOUR_API_GATEWAY_UPLOAD_ENDPOINT', {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+            if (result.success) {
+                getTranscription(result.jobId);
+            } else {
+                alert('Failed to upload video');
+            }
+        }
+
+        async function getTranscription(jobId) {
+            const response = await fetch(`YOUR_API_GATEWAY_GET_TRANSCRIPTION_ENDPOINT?jobId=${jobId}`);
+            const result = await response.json();
+            document.getElementById('transcriptionResult').innerText = result.transcription;
+        }
+    </script>
+</body>
+</html>

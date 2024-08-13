@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta name="description" content="A simple webpage">
+</head>
+<style>
+    label{
+        display: block;
+        margin-bottom: 8px;
+    }
+</style>
+<body>
+    <form action="success.html" method="GET">
+       <!--name-->
+        <label for="e_name" >Name:
+        <input 
+        name="e_name"
+         id="e_name" 
+         type="text"
+          required placeholder="Name">
+        </label>
+        <!--email-->
+        <label for="e_email">Email:
+        <input 
+        name="e_email" 
+        id="e_email"
+         type="email"
+          required placeholder="example@gmail.com">
+          </label>
+          <!--date readonly-->
+          <label for="e_date">Date:
+            <input 
+            name="e_date" 
+            id="e_date"
+             type="date"
+              value="2024-01-15 "readonly>
+              </label>
+         <div>
+            <label for="e_male">
+                <input 
+                name="e_gender" 
+                id="e_male"
+                type="radio"
+                value="Male">Male
+             </label>
+            <label for="e_female">
+                <input 
+                name="e_gender" 
+                id="e_female"
+                type="radio"
+                value="e_female">female
+            </label>
+            <!--Search bar-->
+            <label for="e_search">
+                <input 
+                name="e_search" 
+                id="e_search"
+                 type="search"
+                 placeholder="search for...">
+                 <input type="submit" value="search">
+                  </label>
+
+                  <label for="e_country">
+                    Select Country:
+                    <select name="e_country" id="e_country">
+                        <option value="IN">India</option>
+                        <option value="US">United States</option>
+                        <option value="UK">UNited Kingdom</option>
+                    </select>
+                  </label>
+
+                  <label for="e_message">
+                    Message:
+                    <textarea
+                    name="e_message"
+                    id="e_message"
+                    cols="30"
+                    rows="5">
+                </textarea>
+                  </label>
+
+                  <label for="e_fancy">
+                    <input
+                    type="image"
+                    src="https://primeinspire.com/wp-content/uploads/2023/05/send-fancy.png">
+                  </label>
+         </div>     
+
+        <button>Sign up</button>
+    </form>
+</body>
+</html>
